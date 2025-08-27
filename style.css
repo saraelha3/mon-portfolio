@@ -1,0 +1,288 @@
+/* =================================
+   Polices et Variables de Couleur
+   ================================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
+
+:root {
+    --couleur-principale: #789d6a; /* Vert sauge */
+    --couleur-secondaire: #f4f0e8; /* Blanc cassé */
+    --couleur-accent: #d4a373;   /* Or doux */
+    --couleur-texte: #333333;
+    --police-titres: 'Playfair Display', serif;
+    --police-texte: 'Roboto', sans-serif;
+}
+
+
+/* =================================
+   Styles Généraux du Site
+   ================================= */
+body {
+    font-family: var(--police-texte);
+    color: var(--couleur-texte);
+    margin: 0;
+    padding-top: 70px; /* Espace pour le menu fixe */
+    background-color: #ffffff;
+}
+
+h1, h2, h3 {
+    font-family: var(--police-titres);
+    color: var(--couleur-principale);
+}
+
+
+/* =================================
+   Menu de Navigation (Header)
+   ================================= */
+.menu-fixe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-family: var(--police-titres);
+    font-size: 1.5em;
+    color: var(--couleur-principale);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--couleur-texte);
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--couleur-accent);
+}
+
+
+/* ====================================================
+   Page Accueil - Bannière (Méthode avec <img> en HTML)
+   ==================================================== */
+.banniere {
+    position: relative; /* Crée un contexte pour positionner l'image et le texte */
+    height: 90vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Empêche tout débordement */
+}
+
+.banniere-image {
+    position: absolute; /* Permet de positionner l'image en fond */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* S'assure que l'image couvre tout l'espace sans se déformer */
+    z-index: 1; /* Place l'image à l'arrière-plan */
+}
+
+.banniere-contenu {
+    position: relative; /* S'assure que le contenu passe par-dessus l'image */
+    z-index: 2; /* Place le contenu texte au-dessus de l'image */
+    background-color: rgba(244, 240, 232, 0.9); /* Fond semi-transparent pour la lisibilité */
+    padding: 40px 60px;
+    border-radius: 5px;
+}
+
+.banniere h1 {
+    font-size: 5em;
+    margin: 0;
+    color: var(--couleur-principale);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    font-weight: 400;
+}
+
+.slogan {
+    font-size: 1.6em;
+    font-style: italic;
+    color: var(--couleur-texte);
+    text-shadow: none;
+}
+
+
+/* =================================
+   Sections et Éléments Communs
+   ================================= */
+.apercu-services, .a-propos, .services-produits, .contact {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.bouton {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: var(--couleur-principale);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.bouton:hover {
+    background-color: #6a8b5e;
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   Page Accueil - Aperçu des Services
+   ================================= */
+.services-liste {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+/* =================================
+   Page Services - Grille des Produits
+   ================================= */
+.grille-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.produit {
+    background-color: var(--couleur-secondaire);
+    padding: 20px;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.produit:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.produit img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+/* =================================
+   Page À Propos
+   ================================= */
+.image-propos {
+    max-width: 500px;
+    width: 100%;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.a-propos p {
+    text-align: justify;
+    max-width: 800px;
+    margin: 15px auto;
+    line-height: 1.8;
+}
+
+
+/* =================================
+   Page Contact - Formulaire
+   ================================= */
+form {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+.form-groupe {
+    margin-bottom: 20px;
+}
+
+.form-groupe label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-groupe input,
+.form-groupe textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: var(--police-texte);
+}
+
+form .bouton {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.message-succes {
+    color: var(--couleur-principale);
+    font-weight: bold;
+}
+
+
+/* =================================
+   Pied de Page (Footer)
+   ================================= */
+footer {
+    background-color: var(--couleur-secondaire);
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+
+/* =================================
+   Responsive Design (Adaptation Mobile)
+   ================================= */
+@media (max-width: 768px) {
+    .services-liste {
+        flex-direction: column;
+    }
+
+    nav ul {
+        display: none; /* Pour un design mobile simple. Idéalement, on ajouterait un menu "burger". */
+    }
+
+    .banniere h1 {
+        font-size: 2.5em;
+    }
+
+    .slogan {
+        font-size: 1.2em;
+    }
+}
