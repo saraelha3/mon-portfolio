@@ -1,288 +1,166 @@
-/* =================================
-   Polices et Variables de Couleur
-   ================================= */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap');
-
+/* --- Thème Marron Clair & Styles Généraux --- */
 :root {
-    --couleur-principale: #789d6a; /* Vert sauge */
-    --couleur-secondaire: #f4f0e8; /* Blanc cassé */
-    --couleur-accent: #d4a373;   /* Or doux */
-    --couleur-texte: #333333;
-    --police-titres: 'Playfair Display', serif;
-    --police-texte: 'Roboto', sans-serif;
+    --primary-color: #a1887f; /* Marron doux */
+    --primary-light: #d7ccc8;
+    --primary-dark: #795548;
+    --background-color: #fdfaf6; /* Beige très clair */
+    --container-bg: #ffffff;
+    --text-color: #4e423f; /* Marron foncé pour le texte */
+    --subtle-text: #9e9e9e;
+    --border-color: #e0e0e0;
+    --priority-high: #e57373; /* Rouge doux */
+    --priority-medium: #ffb74d; /* Orange doux */
+    --priority-low: #81c784; /* Vert doux */
+    --shadow-color: rgba(121, 85, 72, 0.15);
 }
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* =================================
-   Styles Généraux du Site
-   ================================= */
 body {
-    font-family: var(--police-texte);
-    color: var(--couleur-texte);
-    margin: 0;
-    padding-top: 70px; /* Espace pour le menu fixe */
-    background-color: #ffffff;
-}
-
-h1, h2, h3 {
-    font-family: var(--police-titres);
-    color: var(--couleur-principale);
-}
-
-
-/* =================================
-   Menu de Navigation (Header)
-   ================================= */
-.menu-fixe {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo {
-    font-family: var(--police-titres);
-    font-size: 1.5em;
-    color: var(--couleur-principale);
-    text-decoration: none;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: var(--couleur-texte);
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: var(--couleur-accent);
-}
-
-
-/* ====================================================
-   Page Accueil - Bannière (Méthode avec <img> en HTML)
-   ==================================================== */
-.banniere {
-    position: relative; /* Crée un contexte pour positionner l'image et le texte */
-    height: 90vh; 
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+    background-size: 16px 16px;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    overflow: hidden; /* Empêche tout débordement */
-}
-
-.banniere-image {
-    position: absolute; /* Permet de positionner l'image en fond */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* S'assure que l'image couvre tout l'espace sans se déformer */
-    z-index: 1; /* Place l'image à l'arrière-plan */
-}
-
-.banniere-contenu {
-    position: relative; /* S'assure que le contenu passe par-dessus l'image */
-    z-index: 2; /* Place le contenu texte au-dessus de l'image */
-    background-color: rgba(244, 240, 232, 0.9); /* Fond semi-transparent pour la lisibilité */
-    padding: 40px 60px;
-    border-radius: 5px;
-}
-
-.banniere h1 {
-    font-size: 5em;
-    margin: 0;
-    color: var(--couleur-principale);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-    font-weight: 400;
-}
-
-.slogan {
-    font-size: 1.6em;
-    font-style: italic;
-    color: var(--couleur-texte);
-    text-shadow: none;
-}
-
-
-/* =================================
-   Sections et Éléments Communs
-   ================================= */
-.apercu-services, .a-propos, .services-produits, .contact {
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.bouton {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: var(--couleur-principale);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.bouton:hover {
-    background-color: #6a8b5e;
-    transform: translateY(-2px);
-}
-
-
-/* =================================
-   Page Accueil - Aperçu des Services
-   ================================= */
-.services-liste {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.service-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-
-/* =================================
-   Page Services - Grille des Produits
-   ================================= */
-.grille-services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.produit {
-    background-color: var(--couleur-secondaire);
+    min-height: 100vh;
     padding: 20px;
-    border-radius: 5px;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.produit:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.produit img {
+.app-container {
     width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-
-/* =================================
-   Page À Propos
-   ================================= */
-.image-propos {
-    max-width: 500px;
-    width: 100%;
-    border-radius: 5px;
-    margin: 20px 0;
-}
-
-.a-propos p {
-    text-align: justify;
     max-width: 800px;
-    margin: 15px auto;
-    line-height: 1.8;
+    background-color: var(--container-bg);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
-
-/* =================================
-   Page Contact - Formulaire
-   ================================= */
-form {
-    max-width: 600px;
-    margin: 40px auto;
-    text-align: left;
-}
-
-.form-groupe {
-    margin-bottom: 20px;
-}
-
-.form-groupe label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-groupe input,
-.form-groupe textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: var(--police-texte);
-}
-
-form .bouton {
-    width: 100%;
-    border: none;
-    cursor: pointer;
-}
-
-.message-succes {
-    color: var(--couleur-principale);
-    font-weight: bold;
-}
-
-
-/* =================================
-   Pied de Page (Footer)
-   ================================= */
-footer {
-    background-color: var(--couleur-secondaire);
+/* --- En-tête --- */
+header { 
+    background-color: var(--primary-color); 
+    color: white; 
+    padding: 24px 32px; 
     text-align: center;
-    padding: 20px;
-    margin-top: 60px;
+}
+header h1 { 
+    font-family: 'Lora', serif;
+    font-size: 2.25rem; 
+    font-weight: 600;
+}
+header p { font-size: 1rem; opacity: 0.9; }
+
+/* --- Panneau de contrôle --- */
+.controls-panel { 
+    padding: 24px 32px; 
+    border-bottom: 1px solid var(--border-color);
+    background: #fafafa;
+}
+#add-task-form { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+#add-task-form input, #add-task-form select {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    font-family: 'Nunito Sans', sans-serif; /* Assurer la cohérence de la police */
+}
+#add-task-form input:focus, #add-task-form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+#add-task-form input[type="text"] { flex-grow: 1; min-width: 150px; }
+#add-task-form button {
+    padding: 12px 24px;
+    background-color: var(--primary-dark);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+#add-task-form button:hover { background-color: #5d4037; }
+
+/* NOUVEAU : Conteneur pour les champs date et heure */
+.date-time-inputs {
+    display: flex;
+    gap: 8px;
 }
 
-
-/* =================================
-   Responsive Design (Adaptation Mobile)
-   ================================= */
-@media (max-width: 768px) {
-    .services-liste {
-        flex-direction: column;
-    }
-
-    nav ul {
-        display: none; /* Pour un design mobile simple. Idéalement, on ajouterait un menu "burger". */
-    }
-
-    .banniere h1 {
-        font-size: 2.5em;
-    }
-
-    .slogan {
-        font-size: 1.2em;
-    }
+/* --- Section principale (Filtres, Tri, Liste) --- */
+main { padding: 24px 32px; flex-grow: 1; }
+.list-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;}
+.filters button, .sorting select {
+    background-color: #f5f5f5;
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
 }
+.filters .filter-btn.active { 
+    background-color: var(--primary-light); 
+    color: var(--primary-dark); 
+    border-color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* --- Items de la Tâche --- */
+#task-list { list-style: none; max-height: 40vh; overflow-y: auto; padding-right: 5px; }
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background: white;
+    border-left: 5px solid;
+    border-color: var(--border-color);
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.task-item:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+
+.task-item.priority-haute { border-left-color: var(--priority-high); }
+.task-item.priority-moyenne { border-left-color: var(--priority-medium); }
+.task-item.priority-basse { border-left-color: var(--priority-low); }
+
+.task-item.completed { opacity: 0.6; }
+.task-item.completed .task-title { text-decoration: line-through; }
+
+.task-checkbox { margin: 0 16px; width: 20px; height: 20px; accent-color: var(--primary-dark); }
+.task-content { flex-grow: 1; }
+.task-title { font-weight: 600; font-family: 'Lora', serif; font-size: 1.1rem; }
+.task-details { font-size: 0.85rem; color: var(--subtle-text); margin-top: 4px; }
+.task-details .due-date.overdue { color: var(--priority-high); font-weight: bold; }
+.task-actions button {
+    background: none; border: none; font-size: 1.1rem; color: #bdbdbd; cursor: pointer;
+    margin-left: 10px; transition: color 0.2s;
+}
+.task-actions button:hover { color: var(--primary-dark); }
+
+/* --- Fenêtre Modale --- */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(78, 66, 63, 0.5); display: flex; justify-content: center; align-items: center;
+    backdrop-filter: blur(4px);
+    visibility: hidden; opacity: 0; transition: all 0.3s;
+}
+.modal-overlay.visible { visibility: visible; opacity: 1; }
+.modal-content {
+    background: white; padding: 32px; border-radius: 16px; width: 90%; max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: scale(0.9); transition: transform 0.3s ease;
+}
+.modal-overlay.visible .modal-content { transform: scale(1); }
+#edit-task-form label { display: block; margin-top: 12px; margin-bottom: 6px; font-weight: 600; }
+#edit-task-form input, #edit-task-form select { width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
+.modal-actions button { padding: 10px 20px; border-radius: 8px; border: 1px solid var(--border-color); cursor: pointer; font-weight: 600; }
+.modal-actions button[type="submit"] { background-color: var(--primary-dark); color: white; border-color: var(--primary-dark); }

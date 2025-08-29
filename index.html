@@ -3,67 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fleur de Lune - Artisan Fleuriste</title>
+    <title>Ma To-Do List Élégante</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="menu-fixe">
-        <nav>
-            <a href="index.html" class="logo">Fleur de Lune</a>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="a-propos.html">À propos</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <!-- J'ai changé l'image de fond dans le CSS pour celle-ci -->
-        <style>
-            .banniere {
-                background-image: url('../images/banniere-accueil.jpg');
-            }
-        </style>
-       <main>
-    <section class="banniere">
-        <!-- L'image est maintenant directement dans le HTML -->
-        <img src="images/banniere-accueil.jpg" alt="Fleurs blanches disposées en cadre sur un fond clair" class="banniere-image">
+    <div class="app-container">
+        
+        <header>
+            <div class="header-content">
+                <h1>Ma To-Do List</h1>
+                <p id="task-counter">Organisez votre journée avec style</p>
+            </div>
+        </header>
 
-        <div class="banniere-contenu">
-            <h1>Fleur de Lune</h1>
-            <p class="slogan">L'art floral pour chaque occasion.</p>
+        <div class="controls-panel">
+            <form id="add-task-form">
+                <input type="text" id="task-input" placeholder="Nouvelle tâche..." required>
+                <div class="date-time-inputs">
+                    <input type="date" id="task-due-date" title="Date limite">
+                    <!-- NOUVEAU : Champ pour l'heure -->
+                    <input type="time" id="task-due-time" title="Heure limite">
+                </div>
+                <select id="task-priority" title="Priorité">
+                    <option value="basse">Basse</option>
+                    <option value="moyenne" selected>Moyenne</option>
+                    <option value="haute">Haute</option>
+                </select>
+                <button type="submit">Ajouter</button>
+            </form>
         </div>
-    </section>
 
-    <section class="apercu-services">
-
-        <section class="apercu-services">
-            <h2>Nos Créations</h2>
-            <div class="services-liste">
-                <div class="service-item">
-                    <img src="images/bouquet-rustique.jpg" alt="Bouquet champêtre et rustique">
-                    <h3>Bouquets de saison</h3>
-                    <p>Des bouquets composés avec les plus belles fleurs du moment.</p>
+        <main>
+            <div class="list-header">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Toutes</button>
+                    <button class="filter-btn" data-filter="pending">En cours</button>
+                    <button class="filter-btn" data-filter="completed">Terminées</button>
                 </div>
-                <div class="service-item">
-                    <img src="images/composition-moderne.jpg" alt="Composition florale moderne">
-                    <h3>Événements</h3>
-                    <p>Des compositions uniques pour vos mariages, anniversaires et réceptions.</p>
-                </div>
-                <div class="service-item">
-                    <img src="images/etale-de-plantes.jpg" alt="Sélection de plantes d'intérieur">
-                    <h3>Plantes d'intérieur</h3>
-                    <p>Une sélection de plantes pour embellir votre intérieur.</p>
+                <div class="sorting">
+                    <label for="sort-options">Trier par :</label>
+                    <select id="sort-options">
+                        <option value="creation">Création</option>
+                        <option value="dueDate">Échéance</option>
+                        <option value="priority">Priorité</option>
+                    </select>
                 </div>
             </div>
-            <a href="services.html" class="bouton">Voir tous nos services</a>
-        </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Fleur de Lune. Tous droits réservés.</p>
-    </footer>
+            <ul id="task-list">
+                <!-- Les tâches apparaîtront ici -->
+            </ul>
+        </main>
+    </div>
+
+    <!-- Fenêtre Modale pour l'édition -->
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Modifier la tâche</h2>
+            <form id="edit-task-form">
+                <input type="hidden" id="edit-task-id">
+                <label for="edit-task-text">Titre de la tâche</label>
+                <input type="text" id="edit-task-text" required>
+                <label for="edit-task-due-date">Échéance</label>
+                <div class="date-time-inputs">
+                    <input type="date" id="edit-task-due-date">
+                     <!-- NOUVEAU : Champ pour l'heure dans la modale -->
+                    <input type="time" id="edit-task-due-time">
+                </div>
+                <label for="edit-task-priority">Priorité</label>
+                <select id="edit-task-priority">
+                    <option value="basse">Basse</option>
+                    <option value="moyenne">Moyenne</option>
+                    <option value="haute">Haute</option>
+                </select>
+                <div class="modal-actions">
+                    <button type="button" id="cancel-edit-btn">Annuler</button>
+                    <button type="submit">Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>
