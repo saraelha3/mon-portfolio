@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Fleur de Lune</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="menu-fixe">
+        <nav>
+            <a href="index.html" class="logo">Fleur de Lune</a>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="a-propos.html">À propos</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenu-page">
+        <section class="contact">
+            <h1>Contactez-nous</h1>
+            <p>Une question, un projet ? N'hésitez pas à nous envoyer un message.</p>
+            <form id="contact-form">
+                <div class="form-groupe">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-groupe">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-groupe">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+                <button type="submit" class="bouton">Envoyer</button>
+            </form>
+            <p id="form-message" class="message-succes" style="display:none;">Merci ! Votre message a bien été envoyé.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Fleur de Lune. Tous droits réservés.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
