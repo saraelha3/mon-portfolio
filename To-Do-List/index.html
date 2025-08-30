@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma To-Do List Élégante</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <header>
+            <div class="header-content">
+                <h1>Ma To-Do List</h1>
+                <p id="task-counter">Organisez votre journée avec style</p>
+            </div>
+        </header>
+
+        <div class="controls-panel">
+            <form id="add-task-form">
+                <input type="text" id="task-input" placeholder="Nouvelle tâche..." required>
+                <div class="date-time-inputs">
+                    <input type="date" id="task-due-date" title="Date limite">
+                    <!-- NOUVEAU : Champ pour l'heure -->
+                    <input type="time" id="task-due-time" title="Heure limite">
+                </div>
+                <select id="task-priority" title="Priorité">
+                    <option value="basse">Basse</option>
+                    <option value="moyenne" selected>Moyenne</option>
+                    <option value="haute">Haute</option>
+                </select>
+                <button type="submit">Ajouter</button>
+            </form>
+        </div>
+
+        <main>
+            <div class="list-header">
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Toutes</button>
+                    <button class="filter-btn" data-filter="pending">En cours</button>
+                    <button class="filter-btn" data-filter="completed">Terminées</button>
+                </div>
+                <div class="sorting">
+                    <label for="sort-options">Trier par :</label>
+                    <select id="sort-options">
+                        <option value="creation">Création</option>
+                        <option value="dueDate">Échéance</option>
+                        <option value="priority">Priorité</option>
+                    </select>
+                </div>
+            </div>
+
+            <ul id="task-list">
+                <!-- Les tâches apparaîtront ici -->
+            </ul>
+        </main>
+    </div>
+
+    <!-- Fenêtre Modale pour l'édition -->
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Modifier la tâche</h2>
+            <form id="edit-task-form">
+                <input type="hidden" id="edit-task-id">
+                <label for="edit-task-text">Titre de la tâche</label>
+                <input type="text" id="edit-task-text" required>
+                <label for="edit-task-due-date">Échéance</label>
+                <div class="date-time-inputs">
+                    <input type="date" id="edit-task-due-date">
+                     <!-- NOUVEAU : Champ pour l'heure dans la modale -->
+                    <input type="time" id="edit-task-due-time">
+                </div>
+                <label for="edit-task-priority">Priorité</label>
+                <select id="edit-task-priority">
+                    <option value="basse">Basse</option>
+                    <option value="moyenne">Moyenne</option>
+                    <option value="haute">Haute</option>
+                </select>
+                <div class="modal-actions">
+                    <button type="button" id="cancel-edit-btn">Annuler</button>
+                    <button type="submit">Sauvegarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
